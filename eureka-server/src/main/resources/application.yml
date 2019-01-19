@@ -1,0 +1,18 @@
+#服务配置
+server:
+  #默认地址
+  port: 8761
+
+
+spring:
+  application:
+#    应用名称
+    name: eureka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+#    不注册自己  默认true
+    register-with-eureka: false
+
+

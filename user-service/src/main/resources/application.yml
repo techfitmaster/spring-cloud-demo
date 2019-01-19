@@ -1,0 +1,44 @@
+#服务配置
+server:
+  port: 8888
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+
+  main:
+    allow-bean-definition-overriding: true
+
+  application:
+    name: user-service
+
+#日志配置
+logging:
+  level:
+    ##选择包路径
+    com.albert: debug
+    org.springframework: debug
+
+#mybatis
+
+mybatis:
+  type-aliases-package: com.albert.pojo
+#  config-location: mapper/*.xml
+
+
+eureka:
+  client:
+    service-url:
+      # EurekaServer地址
+      defaultZone: http://127.0.0.1:8761/eureka
+
+  instance:
+#    设置心跳时间 默认30秒
+    lease-renewal-interval-in-seconds: 30
+#    最小剔出时间 默认90
+    lease-expiration-duration-in-seconds: 90

@@ -1,0 +1,41 @@
+#服务配置
+server:
+  port: 8890
+
+
+#配置负载均衡
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+zuul:
+
+#  默认已经获取服务列表 path: /服务名/**
+  routes:
+    user-service: /user-service/**
+  ignored-services:
+    - consumer-service
+#  添加前缀
+  prefix: /api
+
+spring:
+  application:
+    name: gateway-server
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            # 熔断超时时长：6000ms
+            timeoutInMillisecond: 6000
+
+
+ribbon:
+  # 连接超时时间(ms)
+  ConnectTimeout: 500
+  # 通信超时时间(ms)
+  ReadTimeout: 2000
