@@ -27,7 +27,7 @@ http://spring.io/projects/spring-cloud
 - Zuul：服务网关
 - Ribbon：负载均衡
 - Feign：服务调用
-- Hystix：熔断器
+- hystrix：熔断器
 
 版本: 
 
